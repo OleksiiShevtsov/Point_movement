@@ -126,7 +126,7 @@ void sensorTrue() {
 }
 
 void direction() {
-	//задание направления ускрения
+	//Г§Г Г¤Г Г­ГЁГҐ Г­Г ГЇГ°Г ГўГ«ГҐГ­ГЁГї ГіГ±ГЄГ°ГҐГ­ГЁГї
 	switch (dir) {
 	case 1:
 		if (sensor_1) {
@@ -326,10 +326,8 @@ void Tick() {
 	dir = 0;
 }
 
-//Движение
 void MyKeyboard(unsigned char key, int a, int b) {
 
-	//задание граничных условий
 	if (key == 'a') {
 		dir = 3;
 	}
@@ -378,7 +376,6 @@ void box() {
 	glEnd();
 }
 
-//поле
 void display() {
 	glClear(GL_COLOR_BUFFER_BIT);
 	
@@ -389,7 +386,6 @@ void display() {
 	glFlush();
 }
 
-//цыкл программы
 void timer(int = 0) {
 	display();
 
@@ -405,16 +401,13 @@ int main(int argc, char **argv) {
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 	glutInitWindowSize(L, H);
 	glutCreateWindow("Snake");
-	glClearColor(0.1, 0.1, 0.1, 0.0);//закрасить поле
+	glClearColor(0.1, 0.1, 0.1, 0.0);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	gluOrtho2D(0, L, 0, H);
 
-	//функция цыкл времени
 	glutTimerFunc(50, timer, 0);
-	//функция воода клавиш(не нужно реализовывать)
 	glutKeyboardFunc(MyKeyboard);
-	//функция дисплей
 	glutDisplayFunc(display);
 	glutMainLoop();
 }
